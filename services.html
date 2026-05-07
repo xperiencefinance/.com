@@ -1,0 +1,149 @@
+# Xperience Finance — Multi-Page Website
+
+> A complete, GitHub Pages-ready multi-page website for Xperience Finance with Xav.
+
+---
+
+## 📁 Project Structure
+
+```
+xperience-finance-site/
+│
+├── index.html          ← Home page (hero, services overview, media, stats)
+├── services.html       ← Services detail page with FAQ accordion
+├── about.html          ← Credibility speech page
+├── gallery.html        ← Photo & video gallery with filter tabs
+├── contact.html        ← Contact form + info + WhatsApp float button
+│
+├── css/
+│   └── style.css       ← All shared styles (nav, layout, colors, fonts)
+│
+├── js/
+│   └── main.js         ← Shared JavaScript (nav toggle, scroll reveal, progress bar)
+│
+└── images/             ← Put ALL your photos and videos here
+    └── (your images go here)
+```
+
+---
+
+## 🚀 Deploying to GitHub Pages
+
+### If this is a NEW repository:
+
+1. Go to [github.com](https://github.com) → click **+** → **New repository**
+2. Name it (e.g. `xperience-finance`) — set to **Public**
+3. Click **Create repository**
+4. Click **uploading an existing file**
+5. Drag and drop the ENTIRE folder contents (all files + folders)
+6. Click **Commit changes**
+7. Go to **Settings → Pages → Source: main / root → Save**
+8. Your site goes live at: `https://YOUR-USERNAME.github.io/xperience-finance/`
+
+### If you ALREADY have a GitHub Pages repo:
+
+1. Open your repo on GitHub
+2. Click **Add file → Upload files**
+3. Upload everything EXCEPT files that would overwrite work you want to keep
+4. If you already have an `index.html`, decide whether to replace it
+5. Enable Pages if not already enabled: **Settings → Pages**
+
+---
+
+## ✏️ What You MUST Update Before Going Live
+
+Search for these placeholders across all HTML files and replace with your real info:
+
+| Placeholder | Replace With |
+|---|---|
+| `YOUR_HANDLE` | Your Instagram username |
+| `YOUR-USERNAME` | Your GitHub username |
+| `xav@xperiencefinance.com` | Your real email address |
+| `+1 (868) 000-0000` | Your real phone number |
+| `18681234567` | Your WhatsApp number (digits only, with country code) |
+| `YOUR-REPO-NAME` | Your GitHub repository name |
+
+---
+
+## 📸 How to Add Your Own Photos
+
+1. Save image files into the `images/` folder
+2. Open `gallery.html` (or `index.html` for the home page media section)
+3. Find a block like this:
+```html
+<div class="gallery-placeholder h-lg">
+  <svg>...</svg>
+  <span>Add Photo</span>
+</div>
+```
+4. Replace it with:
+```html
+<img src="images/your-photo.jpg" alt="Describe the photo" style="width:100%;display:block;">
+```
+5. Leave the `.overlay` div in place — it gives the hover label effect
+
+**Photo tips:**
+- Use JPG for photos (smaller file size)
+- Use PNG for logos/graphics
+- Keep each image under 1MB for fast loading
+- Recommended dimensions: 1200px wide minimum
+
+---
+
+## 📬 How to Make the Contact Form Actually Send Emails
+
+GitHub Pages is static — it can't process forms on its own. Use one of these free services:
+
+### Option A — Formspree (Easiest)
+1. Go to [formspree.io](https://formspree.io) and sign up free
+2. Create a new form — you'll get a URL like `https://formspree.io/f/abcdefgh`
+3. In `contact.html`, change the form tag to:
+```html
+<form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+```
+4. Remove `e.preventDefault()` from the script at the bottom of `contact.html`
+5. Done — submissions go straight to your email
+
+### Option B — Web3Forms (Also Free)
+1. Go to [web3forms.com](https://web3forms.com)
+2. Enter your email — get an access key
+3. Add a hidden input inside the form:
+```html
+<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+```
+
+---
+
+## 🔗 Custom Domain (Optional)
+
+If you own a domain like `xperiencefinance.com`:
+
+1. In **Settings → Pages**, enter your domain in the **Custom domain** field
+2. Add these DNS records at your domain registrar:
+
+| Type | Name | Value |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | YOUR-USERNAME.github.io |
+
+DNS changes take 24–48 hours to propagate.
+
+---
+
+## 🎨 Colour Reference
+
+| Variable | Hex | Used For |
+|---|---|---|
+| `--gold` | `#C9A84C` | Primary accent, borders, icons |
+| `--gold-light` | `#E8C97A` | Hover states, pull quotes |
+| `--black` | `#0A0A0A` | Page backgrounds, footer |
+| `--cream` | `#F5F0E8` | Headings, important text |
+| `--charcoal` | `#1C1C1C` | Cards, form backgrounds |
+| `--muted` | `#888888` | Body copy, labels |
+
+---
+
+*Xperience Finance — Building Trust, One Conversation at a Time.*

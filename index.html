@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Xperience Finance</title>
+  <meta name="description" content="Get in touch with Xav at Xperience Finance. Book a free consultation for insurance and financial planning in Trinidad & Tobago.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      padding: 120px 30px 80px;
+      text-align: center; overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 55%, rgba(42,31,0,0.85) 0%, var(--black) 68%);
+    }
+    .page-hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,168,76,0.03) 39px, rgba(201,168,76,0.03) 40px);
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900; color: var(--cream); margin-bottom: 16px;
+    }
+    .page-hero h1 em { color: var(--gold); font-style: italic; }
+    .page-hero p {
+      font-size: 1rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto; line-height: 1.8;
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 30px 100px;
+      align-items: start;
+    }
+
+    /* INFO COLUMN */
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+
+    .contact-block {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color var(--transition);
+    }
+    .contact-block:hover { border-color: var(--gold-border); }
+
+    .contact-block-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .contact-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem; font-weight: 700;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .contact-block p, .contact-block a {
+      font-size: 0.88rem; color: var(--muted);
+      line-height: 1.6;
+    }
+    .contact-block a {
+      color: var(--gold);
+      transition: color var(--transition);
+    }
+    .contact-block a:hover { color: var(--gold-light); }
+
+    /* Social row */
+    .social-row {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 9px 16px;
+      border-radius: 40px;
+      transition: background var(--transition), color var(--transition);
+    }
+    .social-btn:hover {
+      background: var(--gold-faint);
+      color: var(--gold-light);
+    }
+
+    /* FORM COLUMN */
+    .contact-form-wrap {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+    }
+
+    .form-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .form-title em { color: var(--gold); font-style: italic; }
+    .form-subtitle {
+      font-size: 0.88rem; color: var(--muted);
+      margin-bottom: 32px; line-height: 1.6;
+    }
+
+    .form-group {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--mid);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      padding: 14px 16px;
+      transition: border-color var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(136,136,136,0.6); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-border);
+      background: rgba(201,168,76,0.04);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { appearance: none; cursor: pointer; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success.show { display: block; }
+    .success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--gold);
+    }
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem; color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .form-success p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* Disclaimer */
+    .form-note {
+      font-size: 0.72rem; color: rgba(136,136,136,0.5);
+      text-align: center; margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 500;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 40px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+    }
+
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-x">Xperience Finance</span>
+    <span class="nav-logo-sub">With Xav</span>
+  </a>
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content reveal">
+      <p class="hero-tag">Let's Talk</p>
+      <h1>Start a Real<br><em>Conversation.</em></h1>
+      <div class="gold-line"></div>
+      <p>No pitch. No pressure. Just an honest conversation about where you are and where you want to be.</p>
+    </div>
+  </section>
+
+  <div class="contact-layout">
+
+    <!-- INFO COLUMN -->
+    <div class="contact-info reveal">
+
+      <div class="contact-block">
+        <div class="contact-block-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .94h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3>Phone / WhatsApp</h3>
+        <!-- Replace with your actual number -->
+        <a href="tel:+18681234567">+1 (868) 000-0000</a>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Email</h3>
+        <!-- Replace with your actual email -->
+        <a href="mailto:xav@xperiencefinance.com">xav@xperiencefinance.com</a>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Location</h3>
+        <p>Chaguanas, Trinidad & Tobago<br>Serving clients island-wide.</p>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Office Hours</h3>
+        <p>Monday – Friday: 8:00am – 5:00pm<br>Saturday: By appointment<br>Sunday: Closed</p>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        </div>
+        <h3>Follow Along</h3>
+        <div class="social-row" style="margin-top: 10px;">
+          <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+            Instagram
+          </a>
+          <a href="https://wa.me/18681234567" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORM COLUMN -->
+    <div class="contact-form-wrap reveal">
+
+      <div id="form-container">
+        <h2 class="form-title">Book a Free<br><em>Consultation</em></h2>
+        <p class="form-subtitle">Fill in your details and I'll reach out within 24 hours to schedule a conversation that works for you.</p>
+
+        <!-- NOTE: GitHub Pages cannot process form submissions server-side.
+             To make this form send emails, connect it to a free service like:
+             - Formspree (formspree.io) — replace action URL below
+             - Netlify Forms — if you move to Netlify
+             - Web3Forms (web3forms.com) — free, easy setup
+             Instructions are in README.md -->
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Your last name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (868) 000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="service">I'm interested in...</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service</option>
+              <option value="life">Life Insurance</option>
+              <option value="motor">Motor Insurance</option>
+              <option value="property">Property / Home Insurance</option>
+              <option value="construction">Construction Risk</option>
+              <option value="business">Business Protection</option>
+              <option value="financial">Financial Planning</option>
+              <option value="unsure">Not sure — I need guidance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" placeholder="Tell me a bit about your situation — no detail is too small."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold form-submit">Send Message</button>
+          <p class="form-note">Your information is kept private and will never be shared or sold.</p>
+        </form>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Message Received.</h3>
+        <p>Thanks for reaching out. I'll be in touch within 24 hours to set up a conversation.<br><br>In the meantime, feel free to follow along on Instagram.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">Xperience Finance</div>
+  <p class="footer-tagline">With Xav · Building Trust · One Conversation at a Time</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="index.html">Home</a><span>·</span>
+    <a href="services.html">Services</a><span>·</span>
+    <a href="about.html">About</a><span>·</span>
+    <a href="gallery.html">Gallery</a><span>·</span>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p class="footer-copy">&copy; 2025 Xperience Finance. All rights reserved. Trinidad & Tobago.</p>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/18681234567?text=Hi%20Xav%2C%20I%27d%20like%20to%20book%20a%20consultation."
+   target="_blank" rel="noopener noreferrer"
+   class="whatsapp-float"
+   aria-label="Chat on WhatsApp">
+  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Chat on WhatsApp
+</a>
+
+<script src="js/main.js"></script>
+<script>
+  // Basic form validation + success state (no server needed for demo)
+  const form = document.getElementById('contact-form');
+  const formContainer = document.getElementById('form-container');
+  const formSuccess = document.getElementById('form-success');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Simple required field check
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#e05555';
+        valid = false;
+        field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
+      }
+    });
+
+    if (!valid) return;
+
+    // Show success state
+    // TO ACTUALLY SEND THE FORM:
+    // 1. Sign up at formspree.io
+    // 2. Change form tag to: <form action="https://formspree.io/f/YOUR_ID" method="POST">
+    // 3. Remove e.preventDefault() above
+    // 4. Keep the success state logic
+
+    formContainer.style.display = 'none';
+    formSuccess.classList.add('show');
+  });
+</script>
+</body>
+</html>
